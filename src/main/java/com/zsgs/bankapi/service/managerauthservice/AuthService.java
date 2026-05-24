@@ -7,11 +7,10 @@ import com.zsgs.bankapi.repository.ManagerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-
 import java.util.Optional;
 
 @Service
-public class AuthService implements IAuthService{
+public class AuthService implements IAuthService  {
 
     @Autowired
     private ManagerRepository managerRepository;
@@ -49,7 +48,6 @@ public class AuthService implements IAuthService{
         if (!passwordEncoder.matches(loginRequest.getPassword(), manager.getPassword())) {
             return "Incorrect password!";
         }
-
         return "Login Successful!";
     }
 }

@@ -25,8 +25,7 @@ public class Manager {
     @Column(name = "mobileNumber", nullable = false)
     private String mobileNo;
 
-    public Manager() {
-    }
+    public Manager() {}
 
     public Manager(String name, String password, int dob, String email, String mobileNo) {
         this.name = name;
