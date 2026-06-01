@@ -22,6 +22,8 @@ public class Account {
 
     @Column(name = "is_active", nullable = false)
     private Boolean isActive;
+    
+   private String role="USER";
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
@@ -36,8 +38,12 @@ public class Account {
         this.isActive = isActive;
         this.user = user;
     }
+   
+    public String getRole() {
+		return role;
+	}
 
-    public Integer getId() {
+	public Integer getId() {
         return id;
     }
 

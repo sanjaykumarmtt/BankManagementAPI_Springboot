@@ -24,6 +24,8 @@ public class Manager {
 
     @Column(name = "mobileNumber", nullable = false)
     private String mobileNo;
+    
+    private String role="MANAGER";
 
     public Manager() {}
 
@@ -34,8 +36,12 @@ public class Manager {
         this.email = email;
         this.mobileNo = mobileNo;
     }
+    
+    public String getRole() {
+		return role;
+	}
 
-    public Long getId() {
+	public Long getId() {
         return id;
     }
 

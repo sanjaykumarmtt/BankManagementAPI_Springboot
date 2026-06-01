@@ -6,7 +6,6 @@ import jakarta.validation.constraints.Positive;
 
 public class FundTransferRequest {
 
-    @NotBlank(message = "Sender account number is required")
     private String senderAccountNumber;
 
     @NotBlank(message = "Receiver account number is required")

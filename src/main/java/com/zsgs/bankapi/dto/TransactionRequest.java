@@ -6,7 +6,6 @@ import jakarta.validation.constraints.Positive;
 
 public class TransactionRequest {
 
-    @NotBlank(message = "Account number is required")
     private String accountNumber;
 
     @NotNull(message = "Amount is required")

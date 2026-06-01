@@ -29,6 +29,8 @@ public class AccountCreationRequest {
 
     @Min(value = 500, message = "Minimum initial balance must be at least 500")
     private Double initialBalance = 500.0;
+    
+    private String role="USER";
 
     public AccountCreationRequest() {}
 
@@ -46,6 +48,10 @@ public class AccountCreationRequest {
     
     
 	
+	public String getRole() {
+		return role;
+	}
+
 	public Integer getUserId() {
 		return userId;
 	}
