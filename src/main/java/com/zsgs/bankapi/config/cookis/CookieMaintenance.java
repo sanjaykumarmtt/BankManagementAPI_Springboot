@@ -16,8 +16,8 @@ public class CookieMaintenance {
 		ResponseCookie cookie = ResponseCookie.from("jwt", jwtToken)
 				.path("/")
 				.httpOnly(true)
-				.secure(true)
-				.sameSite("None")
+				// .secure(true)
+				// .sameSite("None")
 				.maxAge(86400)
 				.build();
 
@@ -28,8 +28,8 @@ public class CookieMaintenance {
 		ResponseCookie cookie = ResponseCookie.from("jwt", null)
 				.path("/")
 				.httpOnly(true)
-				.secure(true)
-				.sameSite("None")
+				// .secure(true)
+				// .sameSite("None")
 				.maxAge(0)
 				.build();
 

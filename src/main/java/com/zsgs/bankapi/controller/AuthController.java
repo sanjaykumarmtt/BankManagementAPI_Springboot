@@ -62,7 +62,7 @@ public class AuthController {
 
 			String token = jwtUtilPak.generateTolen(userDetails);
 			cookieMaintenance.setJwtCookie(response, token);
-			return ResponseEntity.ok(Map.of("Message", "Logged in successfully"));
+			return ResponseEntity.ok(Map.of("Message", "Logged in successfully", "token", token));
 		} catch (Exception e) {
 			return ResponseEntity.badRequest().body(Map.of("error", "Invalid User Name OR password"));
 		}
@@ -86,6 +86,13 @@ public class AuthController {
 					token = cookie.getValue();
 					break;
 				}
+			}
+		}
+
+		if (token == null) {
+			String authHeader = request.getHeader("Authorization");
+			if (authHeader != null && authHeader.startsWith("Bearer ")) {
+				token = authHeader.substring(7);
 			}
 		}
 
