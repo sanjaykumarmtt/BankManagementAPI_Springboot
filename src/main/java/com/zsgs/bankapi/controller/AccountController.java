@@ -274,6 +274,12 @@ public class AccountController {
 	}
 
 	private String getAccountNumberFromToken(jakarta.servlet.http.HttpServletRequest request) {
+		String authHeader = request.getHeader("Authorization");
+		if (authHeader != null && authHeader.startsWith("Bearer ")) {
+			String token = authHeader.substring(7);
+			return jwtUtilPak.extractClaim(token, claims -> claims.get("accNo", String.class));
+		}
+		
 		if (request.getCookies() != null) {
 			for (jakarta.servlet.http.Cookie cookie : request.getCookies()) {
 				if ("jwt".equals(cookie.getName())) {
